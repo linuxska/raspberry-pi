@@ -8,9 +8,18 @@ class squidguard::config inherits squidguard::params {
     group  => $squiduser,
   }
 
-  file { "${confdir}/download-blacklists.sh":
-    ensure => present,
-    content => template('squidguard/download-blacklists.sh.erb'),
+  file { "${confdir}/install-blacklists.sh":
+    ensure  => present,
+    content => template('squidguard/install-blacklists.sh.erb'),
+  }
+
+  exec { 'install-blacklists.sh':
+    cwd       => $confdir,
+    command   => 'sh install-blacklists.sh',
+    path      => [ '/bin' ],
+    logoutput => on_failure,
+    require   => File [ "${confdir}/install-blacklists.sh" ],
+    notify    => Class [ 'squidguard::service' ]
   }
 
 }
