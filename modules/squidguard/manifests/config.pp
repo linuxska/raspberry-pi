@@ -5,7 +5,7 @@ class squidguard::config inherits squidguard::params {
     source => 'puppet:///modules/squidguard/squidGuard.conf',
     mode   => '0644',
     owner  => $squiduser,
-    gid    => $squiduser,
+    group  => $squiduser,
   }
 
   file { "${confdir}/download-blacklists.sh":
