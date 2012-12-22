@@ -1,0 +1,14 @@
+cd <%= @dbdir %>
+
+# Clean existing blacklists
+rm -rf *
+
+# Download blacklists
+wget http://www.shallalist.de/Downloads/shallalist.tar.gz
+tar -xzf shallalist.tar.gz --strip-components=1
+rm -f shallalist.tar.gz
+
+# Convert blacklists to db
+squidGuard -C all
+chown -R <%= @squiduser %> <%= @dbdir %>/*
+
