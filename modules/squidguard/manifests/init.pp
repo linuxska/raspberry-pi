@@ -1,7 +1,7 @@
 class squidguard {
 
-  class { 'squidguard::install' } ->
-  class { 'squidguard::config' } ~>
-  class { 'squidguard::service' }
+  class { 'squidguard::install': } ->
+  class { 'squidguard::config': } ~>
+  class { 'squidguard::service': }
 
 }
