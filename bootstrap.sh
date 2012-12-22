@@ -5,3 +5,4 @@ if [ ! `id -u` = 0 ]; then
 fi
 
 apt-get --yes install puppet git
+git clone https://github.com/rchrd/raspberry-pi.git
