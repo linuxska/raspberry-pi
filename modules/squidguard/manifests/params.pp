@@ -1,5 +1,6 @@
 class squidguard::params {
 
+  $localnet  = '192.168.100./24'
   $bin       = '/usr/bin/squidGuard'
   $logdir    = '/var/log/squidguard'
   $dbdir     = '/var/lib/squidguard/db'

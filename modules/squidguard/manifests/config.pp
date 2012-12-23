@@ -28,7 +28,7 @@ class squidguard::config inherits squidguard::params {
   }
 
   exec { 'configure-squid-localnet':
-    command => "sed -i 's/#acl localnet src 192\\.168\\.0\\.0\\/16.*/acl localnet src 192\\.168\\.100\\.0\\/24/g' ${squidconf}",
+    command => "sed -i 's/#acl localnet src 192\\.168\\.0\\.0\\/16.*/acl localnet src ${localnet}/g' ${squidconf}",
     onlyif  => "grep -F '#acl localnet src 192.168.0.0/16' ${squidconf}",
     notify  => Class [ 'squidguard::service' ],
   }
