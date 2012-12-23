@@ -17,8 +17,6 @@ class squidguard::config inherits squidguard::params {
   exec { 'update-blacklists.sh':
     cwd         => $confdir,
     command     => 'sh update-blacklists.sh',
-    path        => [ '/bin' ],
-    logoutput   => on_failure,
     refreshonly => true,
     notify      => Class [ 'squidguard::service' ]
   }
@@ -26,7 +24,6 @@ class squidguard::config inherits squidguard::params {
   exec { 'link-squid-squidguard':
     command   => "echo url_rewrite_program ${bin} -c ${confdir}/${conffile} >> ${squidconf}",
     unless    => "grep ${conffile} ${squidconf}",
-    logoutput => on_failure,
     notify    => Class [ 'squidguard::service' ],
     require   => File [ "${confdir}/${conffile}" ],
   }
