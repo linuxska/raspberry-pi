@@ -1,4 +1,4 @@
-class nginx::install {
+class nginx::install inherits nginx::params {
 
   package { 'nginx':
     ensure => present,

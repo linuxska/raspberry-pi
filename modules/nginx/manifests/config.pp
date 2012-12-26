@@ -1,4 +1,4 @@
-class nginx::config {
+class nginx::config inherits nginx::params {
 
   file { '/etc/nginx/sites-enabled/default':
     ensure => absent

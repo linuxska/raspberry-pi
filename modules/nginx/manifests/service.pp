@@ -1,4 +1,4 @@
-class nginx::service {
+class nginx::service inherits nginx::params {
 
   service { 'nginx':
     ensure => running,
