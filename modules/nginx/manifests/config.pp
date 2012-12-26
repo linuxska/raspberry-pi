@@ -15,6 +15,7 @@ class nginx::config inherits nginx::params {
     source  => 'puppet:///modules/nginx/www',
     recurse => true,
     purge   => true,
+    force   => true,
   }
 
 }
