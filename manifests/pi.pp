@@ -1,6 +1,7 @@
 node default {
 
   include bash
+  include nginx
   include squidguard
 
   package { [
