@@ -22,3 +22,4 @@ node default {
     'wpasupplicant' ]:
     ensure => absent,
   }
+}
